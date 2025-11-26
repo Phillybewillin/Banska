@@ -7,9 +7,67 @@ import './S2.css'
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
+import { useState , useEffect , useRef} from 'react'
+import JSConfetti from 'js-confetti'
 
 export default function Schene2_2End2() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const jsConfetti = new JSConfetti()
+  const textContainerRef = useRef(null)
+  const [confettiFired, setConfettiFired] = useState(false)
+  // const handleScroll = () => {
+  //     if (textContainerRef.current && !confettiFired) {
+  //       const { scrollTop, scrollHeight, clientHeight } = textContainerRef.current
+  //       const isAtBottom = scrollTop + clientHeight >= scrollHeight - 10 // 10px tolerance
+        
+  //       if (isAtBottom) {
+  //         jsConfetti.addConfetti({
+  //         confettiColors: [
+  //        '#FFD700', '#FFEC8B', '#FFFACD', '#FFA500', '#FF8C00', '#FF6347'
+  //       ],
+  //           confettiRadius: 5, 
+  //           confettiNumber: 500
+  //         })
+  //         setConfettiFired(true)
+  //       }
+  //     } else{
+  //         setConfettiFired(false)
+  //     }
+      
+  //   }
+  //   useEffect(() => {
+  //     const textContainer = textContainerRef.current
+  //     if (textContainer) {
+  //       textContainer.addEventListener('scroll', handleScroll)
+        
+  //       // Cleanup function
+  //       return () => {
+  //         textContainer.removeEventListener('scroll', handleScroll)
+  //       }
+  //     }
+  //   }, [confettiFired])
+
+    useEffect(() => {
+    // Check if confetti hasn't fired yet
+    if (!confettiFired) {
+      // Set the delay (e.g., 10 seconds = 10000 milliseconds)
+      const timer = setTimeout(() => {
+        // Only fire if the component is still mounted and confetti hasn't fired
+        jsConfetti.addConfetti({
+          confettiColors: [
+            '#FFD700', '#FFEC8B', '#FFFACD', '#FFA500', '#FF8C00', '#FF6347'
+          ],
+          confettiRadius: 5, 
+          confettiNumber: 500
+        });
+        setConfettiFired(true);
+      }, 7000); // 10000 ms = 10 seconds
+      
+      // Cleanup the timeout if the component unmounts before 10 seconds
+      return () => clearTimeout(timer);
+    }
+  }, []);
+    
   // Fade-in sequence for text paragraphs
   const textVariants = {
     hidden: { opacity: 0, y: 10 },

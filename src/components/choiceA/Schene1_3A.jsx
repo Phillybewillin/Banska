@@ -41,7 +41,7 @@ export default function Schene1_3A() {
   // David’s full choice A response
   "David meets the reporter’s gaze, steadies his breath, and speaks with practiced confidence.",
   "“Progress requires courage, not fear. Helix will create new industries and opportunities we can’t even imagine. We’ve built robust safeguards, and we believe in empowering innovators — not restricting them with premature legislation.”",
-  "A brief smile follows. It’s subtle, calculated — enough to signal certainty to the market and reassurance to the investors watching the broadcast.",
+  "A brief smile follows. It’s subtle, calculated - enough to signal certainty to the market and reassurance to the investors watching the broadcast.",
   "The room responds instantly with approving murmurs and a ripple of camera flashes.",
 
   // Post-speech breakthrough surge

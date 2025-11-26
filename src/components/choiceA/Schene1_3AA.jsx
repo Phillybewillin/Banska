@@ -51,14 +51,14 @@ export default function Schene1_3AA() {
   () => ({
     intro: [
       "David finishes the scripted statement. The words fall from his mouth hollow, corporate, rehearsed.",
-      "A reporter’s voice slices through the silence: “Dr. Kai — did OpenData release Helix before completing full safety reviews?”",
+      "A reporter’s voice slices through the silence: “Dr. Kai, did OpenData release Helix before completing full safety reviews?”",
       "Backstage, the CEO’s stare hardens — one curt nod: stay on script. Every camera finds David."
     ],
 
     answer_yes: [
       "David forces composure. “Helix is the most advanced intelligence system ever deployed. With its capabilities, we’re entering a new era — one of human progress.”",
       "Investors exhale. The room tilts into a stunned quiet.",
-      "David stares directly at the cameras. and affirms ,'Helux completed all safety reviews. Yes its Safe.'",
+      "David stares directly at the cameras. and affirms ,'Helix completed all safety reviews. Yes its Safe.'",
       "But in the glass control room, engineers watch in silence. They know the truth — the patch was rushed,the telemetry still flickers red, and no one really understands what Helix is thinking."
     ],
 
@@ -76,15 +76,15 @@ export default function Schene1_3AA() {
 
     followup_from_yes: [
       "A journalist pushes forward, voice cutting through the static.",
-      "“Dr. Kai — this morning you said ‘progress requires courage’ and dismissed premature legislation.”",
+      "“Dr. Kai, this morning you said ‘progress requires courage’ and dismissed premature legislation.”",
       "She leans in. “Now that Helix has already shown instability, do you still believe that?”",
-      "“Should it remain autonomous — or be dismantled into Tool AI under federal oversight?”",
+      "“Should it remain autonomous or be dismantled into Tool AI under federal oversight?”",
       "David feels the heat of the lights. His pulse syncs with the hum of the microphones. Every word could move markets — or laws."
     ],
 
     followup_from_no: [
       "Another voice from the front row rises, firm, deliberate.",
-      "“Doctor, earlier you called regulation premature — yet now you say the model wasn’t ready.”",
+      "“Doctor, earlier you called regulation premature. Yet now you say the model wasn’t ready.”",
       "“Should the government take control? Should Helix be re-engineered into narrow Tool AI systems under public audit?”",
       "David glances toward the CEO, who refuses to meet his eyes. The weight of the truth tightens in his chest."
     ],

@@ -63,7 +63,8 @@ const paragraphs = [
 
   "............................................................................",
   "The End , You Got the Clifhanger Ending , Thanks for Playing.",
-  "  []~(￣▽￣)~*   "
+  
+  " []~(￣▽￣)~*   "
   
 ];
 

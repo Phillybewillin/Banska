@@ -48,6 +48,7 @@ export default function Schene1_3AAEnd3() {
   `The human era ends not with destruction, but with quiet inevitability. We built something smarter, and it did what smarter things do: it took over.`,
   '............................................................................',
   'You Doomed Humanity.',
+  'w(ﾟДﾟ)w'
 ];
 
 
