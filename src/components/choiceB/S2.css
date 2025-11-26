@@ -1,0 +1,23 @@
+
+.imageschene2_1{
+    position: fixed;
+    top: 0;
+    right: 0px;
+    height: 100%;
+    width: 50vw;
+    overflow: hidden;
+    backdrop-filter: blur(106px);
+    filter: brightness(.9);
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      /* border-radius: 20px; */
+    }
+
+    @media screen and (max-width: 600px) {
+        display:none;
+        
+    }
+}
