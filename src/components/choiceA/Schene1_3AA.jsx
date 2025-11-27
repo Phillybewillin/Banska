@@ -27,7 +27,7 @@ export default function Schene1_3AA() {
     Schene1_3AAEnd2.preload?.().catch(() => {});
     Schene1_3AAEnd3.preload?.().catch(() => {});
 
-  })
+  },[]);
 
   // controlled setter to track history
   const setPhaseControlled = (newPhase) => {

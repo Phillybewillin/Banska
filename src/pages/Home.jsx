@@ -12,8 +12,7 @@ function Home() {
     
     useEffect(() => {
         Schene1_1.preload?.().catch(() => {});
-        Credits.preload?.().catch(() => {});
-       
+        // Credits.preload?.().catch(() => {});
     }, []);
 
     return (
@@ -45,7 +44,7 @@ function Home() {
                            
                             <div className="sidebar-links">
                                 <button
-                                onMouseEnter={() => Credits.preload()}
+                                onMouseEnter={() => Credits.preload?.().catch(() => {})}
                                 onClick={() => navigate('/credits')}>Credits</button>
                                 <button onClick={() => window.open('https://interactive.keepthefuturehuman.ai/', '_blank')}>
                                     Learn More
@@ -54,7 +53,7 @@ function Home() {
                                     Essay
                                 </button>
                                 <button 
-                                onMouseEnter={() => Schene1_1.preload()}
+                                onMouseEnter={() => Schene1_1.preload?.().catch(() => {})}
                                 onClick={() => navigate('/play')}>Start Simulation</button>
                             </div>
                         </div>
@@ -69,7 +68,7 @@ function Home() {
                 </p>
                 <div className="buttonholder">
                     <button 
-                    onMouseEnter={()=>{Schene1_1.preload()}}
+                    onMouseEnter={()=>{Schene1_1.preload?.().catch(() => {})}}
                     onClick={() => navigate('/play')}>Start Simulation</button>
                     <button onClick={() => navigate('/credits')}>Credits</button>
                     <button onClick={() => window.open('https://interactive.keepthefuturehuman.ai/', '_blank')}>

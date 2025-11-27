@@ -17,7 +17,7 @@ export default function Schene2_1() {
       // Schene2_1End2.preload()?.catch(() => {});
       Schene2_2.preload?.().catch(() => {});
       Schene2_1End2.preload?.().catch(() => {});
-    })
+    },[]);
   // Fade-in sequence for text paragraphs
   const textVariants = {
     hidden: { opacity: 0, y: 10 },

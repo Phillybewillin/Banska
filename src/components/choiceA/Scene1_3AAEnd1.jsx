@@ -13,7 +13,7 @@ export default function Schene1_3AAEnd1() {
   const navigate = useNavigate();
   useEffect(() => {
     Home.preload?.().catch(() => {});
-  })
+   },[]);
   const jsConfetti = new JSConfetti()
   const textContainerRef = useRef(null)
   const [confettiFired, setConfettiFired] = useState(false)

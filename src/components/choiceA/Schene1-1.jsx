@@ -100,7 +100,7 @@ export default function Schene1_1() {
               transition={{ delay: paragraphs.length * 0.3 , duration: 0.5 }}
             >
               <button
-              onMouseEnter={() => Schene1_2.preload()}
+              onMouseEnter={() => Schene1_2.preload?.().catch(() => {})}
               onClick={()=>navigate('/play/1')}>Go to the meeting</button>
               {/* <button onClick={()=>navigate('/quit')}>Quit the job</button> */}
             </motion.div>

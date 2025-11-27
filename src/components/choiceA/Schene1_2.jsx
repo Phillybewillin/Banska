@@ -114,16 +114,16 @@ const paragraphs = [
             //  transition={{ delay: paragraphs.length * 0.2, duration: 0.34 }}
 >
   <button
-  onMouseEnter={()=>{Schene1_3.preload();}}
+  onMouseEnter={()=>{Schene1_3.preload?.().catch(() => {})}}
   onClick={()=>navigate('/play/1/A')}>"It's a breakthrough. The emergent patterns are features, not bugs."</button>
   <button 
-  onMouseEnter={()=>{Schene2_1.preload();}}
+  onMouseEnter={()=>{Schene2_1.preload?.().catch(() => {})}}
   onClick={()=>navigate('/play/1/B')}>"It's potentially both. We need controlled testing before full deployment."</button>
   <button 
-  onMouseEnter={()=>{Schene3_1.preload();}}
+  onMouseEnter={()=>{Schene3_1.preload?.().catch(() => {})}}
   onClick={()=>navigate('/play/1/C')}>"The autonomy makes it a liability without proper safeguards."</button>
   <button 
-  onMouseEnter={()=>{Schene4_1.preload();}}
+  onMouseEnter={()=>{Schene4_1.preload?.().catch(() => {})}}
   onClick={()=>navigate('/play/1/D')}>"I can't in good conscience endorse this release."</button>
 </motion.div>
           </div>

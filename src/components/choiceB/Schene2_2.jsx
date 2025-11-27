@@ -16,7 +16,7 @@ export default function Schene2_2() {
     useEffect(() => {
       Schene2_2End1.preload?.().catch(() => {});
       Schene2_2End2.preload?.().catch(() => {});
-    })
+   },[]);
   // Fade-in sequence for text paragraphs
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
