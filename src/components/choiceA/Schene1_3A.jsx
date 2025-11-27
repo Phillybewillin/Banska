@@ -123,10 +123,10 @@ export default function Schene1_3A() {
               transition={{ delay: paragraphs.length * 0.3  }}
             >
              <button
-              onMouseEnter={()=>{Schene1_3AA.preload()}}
+              onMouseEnter={()=>{Schene1_3AA.preload?.()}}
               onClick={()=>navigate('/play/1/A/A/A')}>Go to the conference and read the scripted statement</button>
              <button 
-              onMouseEnter={()=>{Schene1_3AB.preload()}}
+              onMouseEnter={()=>{Schene1_3AB.preload?.()}}
              onClick={()=>navigate('/play/1/A/A/B')}>Go to the conference and speak the truth</button>
             </motion.div>
           </div>
