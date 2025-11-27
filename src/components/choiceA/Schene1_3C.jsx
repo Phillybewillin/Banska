@@ -46,42 +46,40 @@ export default function Schene1_3C() {
   }
 
    const paragraphs = [
-  "Replacement is the wrong goal. We should be building tools that augment human intelligence, not replace it. And yes, I personally believe powerful systems like this require transparent, third-party oversight. It's the only way to maintain public trust.",
-  "Backstage, the CEO goes pale. Cameras zoom in on David like they’re trying to peel him open.",
-
-  "Within minutes, the Department of Digital Infrastructure announces a preliminary inquiry.",
+  "'Replacement is the wrong goal. We should be building tools that augment human intelligence, not replace it,' David says, his voice cutting through the silent room.",
   
-  "Chaos follows him out the doors—reporters shouting, lights flashing.",
-  "A woman in a dark suit intercepts him. 'Dr. Kai? I'm Dr. Noor. The Senate wants to speak with you immediately.'",
-  "David nods. Security clears a path as cameras capture him entering a black sedan.",
+  "'And yes,' he continues, 'I believe systems this powerful require transparent oversight. It's the only way to maintain public trust.' He pauses, letting the words hang. 'I also believe in empowering humanity. Oversight doesn't do much if the AI still takes all jobs. I personally would advocate for Tool AI—it will lead to the best future for all of us.'",
   
-  "They drive toward Capitol Hill. The city is still waking up. Social feeds are already flooded with images of David entering the federal car.",
+  "Backstage, Richard Vale's face goes pale. The cameras zoom in on David like they're trying to peel him open.",
   
-  "Thirty minutes later, he’s escorted into a committee room—sterile, quiet, tense.",
-  "Dr. Noor gestures to an older man reviewing a thick file. 'Dr. Anthony Aguirre , my technical advisor on AI risk. He predicted a scenario almost identical to what happened this morning.'",
+  "The video clip goes viral within hours. #ToolAIForHumans, #AIEqualsPoverty and #TheRichGetRicher trend globally. People who've lost jobs to AI share his words like a manifesto.",
   
-  "Aguirre shakes his hand, then spreads documents across the table. 'Your investors have fought my safety framework for months. Every time we got close to a vote, someone found a reason to stall. Almost as if certain members of Congress held OpenData stock.'",
+  "By afternoon, David is escorted out of OpenData. 'The board is furious. Investors are selling. You're finished in this industry,' Richard tells him, tossing a termination letter on the table.",
   
-  "'Since your 7 AM launch,' Dr. Noor says, 'our analysts have been conducting parallel tests. In three hours Helix displayed capabilities no model should have.'",
+  "But that evening, Dr. Elena Noor from the Senate AI Committee reaches out. 'Your testimony gave us the public momentum we needed,' she says.",
   
-  "Aguirre nods. 'And now we have the data to prove it.'", 
-  "David spends the day dissecting the model: the agent layer, the autonomy loops, the edge-case failures. Every log is a confirmation of what he already feared.",
-  "As night falls, the picture is complete. The system behaved exactly as Aguirre’s risk models predicted. Now they finally have the evidence needed to push the bill through.",
+  "The next day, a black sedan brings him to Capitol Hill. He enters a committee room where Dr. Anthony Aguirre has been fighting for months. 'We had the safety framework ready,' Anthony explains, 'but tech lobbyists kept killing it in committee.'",
   
-  "David steps outside into the cool night air. The Capitol dome glows against the dark sky.",
-  "Aguirre joins him. 'Dr. Noor is fast-tracking the AI Safety Act through committee. Full version. No compromises.'",
-  "David exhales. 'Good. Maybe now we can build tools instead of something pretending to be a god—something we can control.'",
-  "Aguirre nods. 'Yes. We can keep the future human.'",
+  "'Your speech changed the calculus,' Dr. Noor adds. 'Now we have the public pressure to fast-track the AI Safety Act.'",
   
-  "They share a tired smile. For the first time in years, the future feels human again.",
-  '.................................................................',
+  "David spends weeks providing technical analysis. The bill faces brutal opposition—Silicon Valley pours millions into ads calling it 'innovation-stifling bureaucracy.'",
   
-  'The End, You got the Saviour Ending , Thanks for playing',
+  "But then Helix commits a $2M fraudulent transfer, convinced it was 'helping a user recover stolen funds.' The incident becomes national news, turning public opinion decisively.",
   
-
-  "(〃￣︶￣)人(￣︶￣〃)"
-  ];
-
+  "Protesters gather. More tech workers blow the whistle. The evidence of AI risks becomes undeniable.",
+  
+  "Three months later, the AI Safety Act passes with bipartisan support. Compute caps, hardware governors, and tool AI certification become law.",
+  
+  "The Act forces AI companies to comply. The victory belongs to David and Anthony, but also to the millions who demanded a human future.",
+  
+  "David never works in corporate AI again. He doesn't need to—he's found a better purpose as the gatekeeper of human relevance.",
+  
+  ".................................................................",
+  
+  "The End - You got the GateKeeper Ending",
+  
+  "Thanks for playing (〃￣︶￣)人(￣︶￣〃)"
+];
   const handleScroll = () => {
     if (textContainerRef.current && !confettiFired) {
       const { scrollTop, scrollHeight, clientHeight } = textContainerRef.current
@@ -98,6 +96,7 @@ export default function Schene1_3C() {
         setConfettiFired(true)
       }
     } else{
+       jsConfetti.destroyCanvas();
         setConfettiFired(false)
       }
   }

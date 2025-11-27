@@ -113,7 +113,7 @@ export default function Schene1_3() {
                                     onClick={() => handleChoiceSelect(choice.id)}>
                                         <strong>{choice.action}</strong> {choice.response}
                                     </button>
-                                    <div className="choice-preview">
+                                    {/* <div className="choice-preview">
                                         <div className="preview-content">
                                             <h4>Full Response:</h4>
                                             <p><strong>{choice.action}</strong> {choice.fullresponse}</p>
@@ -121,7 +121,7 @@ export default function Schene1_3() {
                                                 <em>{choice.effect}</em>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             ))}
                         </motion.div>
