@@ -4,9 +4,19 @@ import './s1.css'
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
+import { useEffect } from 'react'
+import Schene1_3A from './Schene1_3A'
+import Schene1_3C from './Schene1_3C'
 
 export default function Schene1_3() {
     const navigate = useNavigate();
+
+     useEffect(() => {
+        Schene1_3A.preload?.().catch(() => {});
+        Schene1_3C.preload?.().catch(() => {});
+      }, []);
+
+
     
     const textVariants = {
         hidden: { opacity: 0, y: 10 },
@@ -33,7 +43,7 @@ export default function Schene1_3() {
         "He lifts a hand. 'I'll take one question.'",
         "A woman near the front stands. She raises her hand. 'I have a question.'",
         "Reporter: 'Good morning, Dr. Kai. The market's calling this 'The Last Invention.' What do you say to fears of massive job displacement — and can you guarantee this model will never be used for malicious purposes?'",
-        "She continues before he can answer. 'And with so much power in corporate hands — do you support new government legislation to regulate systems like Helix? Or should we just trust OpenData to police itself?'",
+        "She continues before he can answer. 'And with so much power in corporate hands, do you support new government legislation to regulate systems like Helix? Or should we just trust OpenData to police itself?'",
         "Another reporter chimes in: 'Or would it be better, Doctor, to focus on AI tools that upSkill people — not autonomous systems that replace them?'",
         "The room quiets again. Kai hesitates, just long enough for the silence to feel heavy.",
     ];
@@ -66,6 +76,13 @@ export default function Schene1_3() {
     const handleChoiceSelect = (choiceId) => {
         navigate(`/play/1/A/${choiceId}`);
     };
+    const handlePreload =(choiceId) => {
+        if (choiceId === 'A') {
+            Schene1_3A.preload?.().catch(() => {});
+        }else{
+            Schene1_3C.preload?.().catch(() => {});
+        }
+    }
 
     return (
         <>
@@ -91,7 +108,9 @@ export default function Schene1_3() {
                         <motion.div className="choices" initial={{ opacity: 0 }} animate={{ opacity: 1}} transition={{ delay: paragraphs.length * 0.3 + 1 }}>
                             {choices.map((choice) => (
                                 <div key={choice.id} className="choice-container">
-                                    <button className="choice-button" onClick={() => handleChoiceSelect(choice.id)}>
+                                    <button className="choice-button"
+                                    onMouseEnter={()=>{handlePreload(choice.id)}}
+                                    onClick={() => handleChoiceSelect(choice.id)}>
                                         <strong>{choice.action}</strong> {choice.response}
                                     </button>
                                     <div className="choice-preview">

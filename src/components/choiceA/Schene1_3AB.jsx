@@ -7,6 +7,7 @@ import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
 import { useState , useEffect , useRef} from 'react'
+import Home from '../../pages/Home.jsx'
 import JSConfetti from 'js-confetti'
 
 export default function Schene1_3AB() {
@@ -120,7 +121,10 @@ export default function Schene1_3AB() {
       }
     }
   }, [confettiFired])
-
+ 
+   useEffect(() => {
+    Home.preload?.().catch(() => {});
+  }, []);
 
 
   return (
@@ -159,7 +163,11 @@ export default function Schene1_3AB() {
               animate={{ opacity: 1 , scale: 1 }}
               transition={{ delay: paragraphs.length * 0.3 + 1 }}
             >
-             <button onClick={()=>navigate('/')}>Play Again</button>
+             <button 
+             onMouseEnter={() => {
+               Home.preload?.().catch(() => {});
+             }}
+             onClick={()=>navigate('/')}>Play Again</button>
              {/* <button onClick={()=>navigate('/play/1/A/A/B')}>Go to the conference and speak the truth</button> */}
             </motion.div>
           </div>

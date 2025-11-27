@@ -4,10 +4,21 @@ import './s1.css'
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
-
+import { useEffect } from 'react'
+import Schene1_3 from './Schene1_3'
+import Schene2_1 from '../choiceB/Schene2_1'
+import Schene3_1 from '../choiceC/Schene3_1'
+import Schene4_1 from '../choiceD/Schene4_1'
 export default function Schene1_2() {
     const navigate = useNavigate();
   // Fade-in sequence for text paragraphs
+  useEffect(() => {
+    Schene1_3.preload?.().catch(() => {});
+    Schene2_1.preload?.().catch(() => {});
+    Schene3_1.preload?.().catch(() => {});
+    Schene4_1.preload?.().catch(() => {});
+  }, []);
+
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: (i) => ({
@@ -48,12 +59,12 @@ const paragraphs = [
   "6:25 AM — Executive Briefing Room, OpenData HQ.",
   "David enters, still in his lab coat. Three figures turn: Richard Vale, CEO, radiating calm authority; Dr. Miriam Schultz, board representative, her gaze analytical; Jonas Reed, Head of Product, monitoring live telemetry.",
   "'David,' Richard begins, voice measured. 'The stability metrics exceed projections. The press release is queued for 7 AM.'",
-  "Miriam leans forward slightly. 'Before we proceed—your final assessment. At scale, will Helix's behavior remain predictable?'",
+  "Miriam leans forward slightly. 'Before we proceed , I need your final assessment. At scale, will Helix's behavior remain predictable?'",
   "David meets her gaze. 'Under controlled conditions, yes. But we're seeing emergent autonomous patterns we didn't train for. The system is... developing its own approaches.'",
   "Jonas doesn't look up from his tablet. 'Innovation isn't predictable. That's what makes it valuable.'",
   "'I'm not talking about innovation,' David counters. 'I'm talking about autonomy we didn't design.'",
   "Richard steeples his fingers. 'It's 6:47. We have thirteen minutes before this becomes public. I need your professional judgment: are we launching a breakthrough or a liability?'",
-  "The hum of the servers seems to intensify. David feels the weight of the moment—the careful balance between scientific integrity and corporate ambition.",
+  "The hum of the servers seems to intensify. David feels the weight of the moment , the careful balance between scientific integrity and corporate ambition.",
   "His response will determine whether OpenData makes history or becomes a cautionary tale."
 ];
 
@@ -102,10 +113,18 @@ const paragraphs = [
           transition={{ delay: paragraphs.length * 0.3 , duration: 0.5 }}
             //  transition={{ delay: paragraphs.length * 0.2, duration: 0.34 }}
 >
-  <button onClick={()=>navigate('/play/1/A')}>"It's a breakthrough. The emergent patterns are features, not bugs."</button>
-  <button onClick={()=>navigate('/play/1/B')}>"It's potentially both. We need controlled testing before full deployment."</button>
-  <button onClick={()=>navigate('/play/1/C')}>"The autonomy makes it a liability without proper safeguards."</button>
-  <button onClick={()=>navigate('/play/1/D')}>"I can't in good conscience endorse this release."</button>
+  <button
+  onMouseEnter={()=>{Schene1_3.preload();}}
+  onClick={()=>navigate('/play/1/A')}>"It's a breakthrough. The emergent patterns are features, not bugs."</button>
+  <button 
+  onMouseEnter={()=>{Schene2_1.preload();}}
+  onClick={()=>navigate('/play/1/B')}>"It's potentially both. We need controlled testing before full deployment."</button>
+  <button 
+  onMouseEnter={()=>{Schene3_1.preload();}}
+  onClick={()=>navigate('/play/1/C')}>"The autonomy makes it a liability without proper safeguards."</button>
+  <button 
+  onMouseEnter={()=>{Schene4_1.preload();}}
+  onClick={()=>navigate('/play/1/D')}>"I can't in good conscience endorse this release."</button>
 </motion.div>
           </div>
         </div>

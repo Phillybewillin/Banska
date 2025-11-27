@@ -203,6 +203,7 @@
 
   @media screen and (max-width: 600px) {
     padding-top:4rem;
+    padding: 1rem;
     width: auto;
     height: 85%;
     padding-bottom: 5rem;

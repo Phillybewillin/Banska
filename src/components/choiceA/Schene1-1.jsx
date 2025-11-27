@@ -1,13 +1,16 @@
-import ops from '../../assets/spashscreen.png'
 import dvdo from '../../assets/davidOffice3.png'
 import './s1.css'
-
+import Schene1_2 from './Schene1_2.jsx'
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
+import { useEffect } from 'react'
 
 export default function Schene1_1() {
     const navigate = useNavigate();
+     useEffect(() => {
+     Schene1_2.preload?.().catch(() => {});
+  }, []);
   // Fade-in sequence for text paragraphs
    const textVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -30,6 +33,7 @@ export default function Schene1_1() {
       }
     })
   }
+
 
   // Slow pan-zoom animation for images
   const zoomVariants = {
@@ -70,7 +74,7 @@ export default function Schene1_1() {
         <div className="imageschene1">
           <motion.img
             className="top"
-            src={ops}
+            src={dvdo}
             alt="spashscreen"
             variants={zoomVariants}
             animate="animate"
@@ -95,7 +99,9 @@ export default function Schene1_1() {
               animate={{ opacity: 1 , scale: 1 }}
               transition={{ delay: paragraphs.length * 0.3 , duration: 0.5 }}
             >
-              <button onClick={()=>navigate('/play/1')}>Go to the meeting</button>
+              <button
+              onMouseEnter={() => Schene1_2.preload()}
+              onClick={()=>navigate('/play/1')}>Go to the meeting</button>
               {/* <button onClick={()=>navigate('/quit')}>Quit the job</button> */}
             </motion.div>
           </div>

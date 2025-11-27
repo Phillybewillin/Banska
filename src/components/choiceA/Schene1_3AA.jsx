@@ -1,11 +1,16 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router";
-import dummy1 from '../../assets/introsceneV2.png';
+import dummy1 from '../../assets/introscene.png';
 import dummy2 from '../../assets/dummy3p.png';
 import dummy3 from '../../assets/dummy4.png';
 import dummy4 from '../../assets/nores.png';
 import dummy5 from '../../assets/nocomment.png';
+
+import Schene1_3AAEnd1 from "./Scene1_3AAEnd1";
+import Schene1_3AAEnd2 from "./Scene1_3AAEnd2";
+import Schene1_3AAEnd3 from "./Scene1_3AAEnd3";
+
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Schene1_3AA() {
@@ -16,6 +21,13 @@ export default function Schene1_3AA() {
   const [future, setFuture] = useState([]);
 
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    Schene1_3AAEnd1.preload?.().catch(() => {});
+    Schene1_3AAEnd2.preload?.().catch(() => {});
+    Schene1_3AAEnd3.preload?.().catch(() => {});
+
+  })
 
   // controlled setter to track history
   const setPhaseControlled = (newPhase) => {
@@ -225,13 +237,19 @@ export default function Schene1_3AA() {
               {renderBlock(phase)}
 
               <div className="choices">
-                <button onClick={() => navigate("/play/1/A/A/A/End1")}>
+                <button 
+                
+                onClick={() => navigate("/play/1/A/A/A/End1")}>
                   Support oversight & toolification
                 </button>
-                <button onClick={() => navigate("/play/1/A/A/A/End2")}>
+                <button 
+                
+                onClick={() => navigate("/play/1/A/A/A/End2")}>
                   Keep Helix autonomous (corporate safeguards)
                 </button>
-                <button onClick={() => navigate("/play/1/A/A/A/End3")}>
+                <button 
+                
+                onClick={() => navigate("/play/1/A/A/A/End3")}>
                   Keep Helix fully autonomous
                 </button>
               </div>

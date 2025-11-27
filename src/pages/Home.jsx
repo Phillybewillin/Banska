@@ -1,12 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import spashscreen from '../assets/spashscreen.png';
 import { ChartNoAxesGantt, X } from 'lucide-react';
 import '../App.css';
 import { useNavigate } from 'react-router';
+import Credits from './Credits';
+import Schene1_1 from '../components/choiceA/Schene1-1';
 
 function Home() {
     const navigate = useNavigate();
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    
+    useEffect(() => {
+        Schene1_1.preload?.().catch(() => {});
+        Credits.preload?.().catch(() => {});
+       
+    }, []);
 
     return (
         <>
@@ -36,14 +44,18 @@ function Home() {
                             </button>
                            
                             <div className="sidebar-links">
-                                <button onClick={() => navigate('/credits')}>Credits</button>
+                                <button
+                                onMouseEnter={() => Credits.preload()}
+                                onClick={() => navigate('/credits')}>Credits</button>
                                 <button onClick={() => window.open('https://interactive.keepthefuturehuman.ai/', '_blank')}>
                                     Learn More
                                 </button>
                                 <button onClick={() => window.open('https://keepthefuturehuman.ai/essay/docs/', '_blank')}>
                                     Essay
                                 </button>
-                                <button onClick={() => navigate('/play')}>Start Simulation</button>
+                                <button 
+                                onMouseEnter={() => Schene1_1.preload()}
+                                onClick={() => navigate('/play')}>Start Simulation</button>
                             </div>
                         </div>
                     </div>
@@ -56,7 +68,9 @@ function Home() {
                     Your choices determine whether humanity remains in charge.
                 </p>
                 <div className="buttonholder">
-                    <button onClick={() => navigate('/play')}>Start Simulation</button>
+                    <button 
+                    onMouseEnter={()=>{Schene1_1.preload()}}
+                    onClick={() => navigate('/play')}>Start Simulation</button>
                     <button onClick={() => navigate('/credits')}>Credits</button>
                     <button onClick={() => window.open('https://interactive.keepthefuturehuman.ai/', '_blank')}>
                                     Learn More

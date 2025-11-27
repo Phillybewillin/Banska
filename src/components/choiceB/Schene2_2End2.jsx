@@ -1,19 +1,18 @@
 
-import escrn from '../../assets/ENDINGGOLDEN.png';
-import kpa from '../../assets/ENDINGGOLDEN.png';
+// import escrn from '../../assets/ENDINGGOLDEN.png';
+import kpaG from '../../assets/ENDINGGOLDEN.png';
 
 import '../choiceA/s1.css'
 import './S2.css'
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
-import { useState , useEffect , useRef} from 'react'
+import { useState , useEffect} from 'react'
 import JSConfetti from 'js-confetti'
 
 export default function Schene2_2End2() {
   const navigate = useNavigate();
   const jsConfetti = new JSConfetti()
-  const textContainerRef = useRef(null)
   const [confettiFired, setConfettiFired] = useState(false)
   // const handleScroll = () => {
   //     if (textContainerRef.current && !confettiFired) {
@@ -126,7 +125,7 @@ export default function Schene2_2End2() {
         <div className="imageschene1">
           <img
             className="tops1_3A"
-            src={escrn}
+            src={kpaG}
             alt="bc scene"
            
           />
@@ -161,7 +160,7 @@ export default function Schene2_2End2() {
          
             <motion.img
             className="ewimage"
-            src={kpa}
+            src={kpaG}
             alt="office scene"
             variants={zoomVariants}
             animate="animate"

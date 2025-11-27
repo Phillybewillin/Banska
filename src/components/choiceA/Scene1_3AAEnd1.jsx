@@ -1,6 +1,5 @@
 
-import escrn from '../../assets/ending1.png'
-import kpa from '../../assets/ending1.png'
+import thisendAA from '../../assets/ending1.png'
 
 import './s1.css'
 
@@ -9,9 +8,12 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
 import { useState , useEffect , useRef} from 'react'
 import JSConfetti from 'js-confetti'
+import Home from '../../pages/Home'
 export default function Schene1_3AAEnd1() {
-    const navigate = useNavigate();
- 
+  const navigate = useNavigate();
+  useEffect(() => {
+    Home.preload?.().catch(() => {});
+  })
   const jsConfetti = new JSConfetti()
   const textContainerRef = useRef(null)
   const [confettiFired, setConfettiFired] = useState(false)
@@ -104,7 +106,7 @@ export default function Schene1_3AAEnd1() {
         <div className="imageschene1">
           <img
             className="tops1_3A"
-            src={escrn}
+            src={thisendAA}
             alt="bc scene"
            
           />
@@ -140,8 +142,8 @@ export default function Schene1_3AAEnd1() {
          
             <motion.img
             className="endimage"
-            src={kpa}
-            alt="office scene"
+            src={thisendAA}
+            alt="scene"
             variants={zoomVariants}
             animate="animate"
           />

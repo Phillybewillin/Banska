@@ -9,8 +9,8 @@
   /* background: radial-gradient(farthest, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 10%, rgba(255,255,255,0) 10%),
   repeating radial-gradient(rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.3) 4px, rgba(255,255,255,0) 4px, rgba(255,255,255,0) 8px); */
 
-  background-image: radial-gradient(rgba(214, 214, 214, 0.416) 1px, rgb(0, 0, 0) 0);
-  background-size: 20px 20px;
+  /* background-image: radial-gradient(rgba(214, 214, 214, 0.058) 1px, rgb(0, 0, 0) 0); */
+  /* background-size: 20px 20px; */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

@@ -1,6 +1,39 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router';
+import { motion, AnimatePresence } from 'framer-motion';
+import { preloadImage } from './utils/Image.jsx';
+import dvdo from './assets/davidOffice3.png'
+import spashscreen from './assets/spashscreen.png';
+import owiv from './assets/meeting1.png'
+import kpa from './assets/PRESSV2.png'
+import escrn from './assets/ASS1.png';
+import kppa from './assets/c3i.png'
 
+import ld from './assets/lawsdiscusion.png'
+import tn from './assets/tvnews.png'
+import CH from './assets/CH.png'
+import dummy1 from './assets/introscene.png';
+import dummy2 from './assets/dummy3p.png';
+import dummy3 from './assets/dummy4.png';
+import dummy4 from './assets/nores.png';
+import dummy5 from './assets/nocomment.png';
+
+import thisendAA from './assets/ending1.png'
+
+import kpa2_1 from './assets/1b.png';
+import kpa2_2 from './assets/ending2AB.png';
+
+import kpaEnd from './assets/ENDING2B.png';
+import kpaG from './assets/ENDINGGOLDEN.png';
+import kpaCo from './assets/END3_3.png';
+
+import kpa3_1 from './assets/thediscussion.png';
+import kpa3_1e from './assets/end33a.png';
+import kpa4_1 from './assets/boardroom1.png';
+
+import kpa4e3 from './assets/4_1e3.png';
+import kpa4e2 from './assets/4_1e2.png';
+import kpa4e1 from './assets/4_1e1.png';
 // Preloadable component factory
 const createPreloadableComponent = (importFn) => {
   const Component = lazy(importFn);
@@ -37,35 +70,130 @@ const NotFound = createPreloadableComponent(() => import('./pages/NotFound.jsx')
 // Preloading strategy
 const preloadNextScenes = (currentPath) => {
   const preloadMap = {
-    '/': [Home, Schene1_1],
-    '/play': [Schene1_2],
-    '/play/1': [Schene1_3, Schene2_1, Schene3_1, Schene4_1],
-    '/play/1/A': [Schene1_3A, Schene1_3C],
-    '/play/1/A/A': [Schene1_3AA, Schene1_3AB],
-    '/play/1/A/A/A': [Schene1_3AAEnd1, Schene1_3AAEnd2, Schene1_3AAEnd3],
-    '/play/1/B': [Schene2_2, Schene2_1End2],
-    '/play/1/B/A': [Schene2_2End1, Schene2_2End2],
-    '/play/1/C': [Schene3_1End],
-    '/play/1/D': [Schene4_1End, Schene4_1End2, Schene4_1End3],
+    '/': {
+      components: [Home, Schene1_1],
+      images: [
+        dvdo,
+        spashscreen,
+      ],
+    },
+    '/play': {
+      components: [Schene1_2],
+      images: [
+        owiv,
+      ],
+    },
+    '/play/1': {
+      components: [Schene1_3, Schene2_1, Schene3_1, Schene4_1],
+      images: [
+        kpa,
+        kpa2_1,
+        kpa3_1,
+        kpa4_1,
+      ],
+    },
+    '/play/1/A': {
+      components: [Schene1_3A, Schene1_3C],
+      images: [
+       escrn,
+       kppa,
+      ],
+    },
+    '/play/1/A/A': {
+      components: [Schene1_3AA, Schene1_3AB],
+      images: [
+      CH,
+      ld,
+      tn,
+      dummy1,
+      dummy2,
+      dummy3,
+      dummy4,
+      dummy5,
+      ],
+    },
+    '/play/1/A/A/A': {
+      components: [Schene1_3AAEnd1, Schene1_3AAEnd2, Schene1_3AAEnd3],
+      images: [
+        thisendAA,
+      ],
+    },
+    '/play/1/B': {
+      components: [Schene2_2, Schene2_1End2],
+      images: [
+        kpa2_2,
+        kpaEnd,
+      ],
+    },
+    '/play/1/B/A': {
+      components: [Schene2_2End1, Schene2_2End2],
+      images: [
+        kpaG,
+        kpaCo,
+      ],
+    },
+    '/play/1/C': {
+      components: [Schene3_1End],
+      images: [
+        kpa3_1e,
+      ],
+    },
+    '/play/1/D': {
+      components: [Schene4_1End, Schene4_1End2, Schene4_1End3],
+      images: [
+        kpa4e1,
+        kpa4e2,
+        kpa4e3,
+      ],
+    },
   };
 
-  const scenesToPreload = preloadMap[currentPath] || [];
-  
-  scenesToPreload.forEach(component => {
-    if (component.preload) {
-      component.preload().catch(error => {
-        console.warn(`Preload failed for component at ${currentPath}:`, error);
+  const nextSceneData = preloadMap[currentPath];
+
+  if (nextSceneData) {
+    nextSceneData.components?.forEach(component => {
+      if (component.preload) {
+        component.preload().catch(error => {
+          console.warn(`Preload failed for component at ${currentPath}:`, error);
+        });
+      }
+    });
+
+    if (typeof preloadImage === 'function') {
+      nextSceneData.images?.forEach(imageSrc => {
+        preloadImage(imageSrc).catch(error => {
+          console.warn(`Preload failed for image: ${imageSrc}`, error);
+        });
       });
     }
-  });
+  }
 };
-
 // Loading component
 const RouteLoader = () => (
   <div className="loading-scene">
-    <div className="loading-spinner"></div>
+    {/* <div className="loading-spinner"></div> */}
   </div>
 );
+
+// Page Wrapper with Framer Motion
+const PageWrapper = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        type: "tween",
+        ease: "easeInOut",
+        duration: .65,
+        
+      }}
+      style={{width:'100%' , height:'100%'}}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 // Preload Manager Component
 const PreloadManager = ({ children }) => {
@@ -84,36 +212,136 @@ const PreloadManager = ({ children }) => {
 };
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <PreloadManager>
-      <Suspense fallback={<RouteLoader />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/play" element={<Schene1_1 />} />
-          <Route path="/play/1" element={<Schene1_2 />} />
-          <Route path="/play/1/A" element={<Schene1_3 />}/>
-          <Route path="/play/1/A/A" element={<Schene1_3A />}/>
-          <Route path="/play/1/A/A/A" element={<Schene1_3AA />}/>
-          <Route path="/play/1/A/A/B" element={<Schene1_3AB />}/>
-          <Route path="/play/1/A/EndC" element={<Schene1_3C/>}/>
-          <Route path="/play/1/A/A/A/End1" element={<Schene1_3AAEnd1/>}/>
-          <Route path="/play/1/A/A/A/End2" element={<Schene1_3AAEnd2/>}/>
-          <Route path="/play/1/A/A/A/End3" element={<Schene1_3AAEnd3/>}/>
-          <Route path="/play/1/B" element={<Schene2_1 />}/>
-          <Route path="/play/1/B/A" element={<Schene2_2 />}/>
-          <Route path="/play/1/B/A/End1" element={<Schene2_2End1 />}/>
-          <Route path="/play/1/B/B/End2" element={<Schene2_2End2 />}/>
-          <Route path="/play/1/B/End2" element={<Schene2_1End2 />}/>
-          <Route path="/play/1/C" element={<Schene3_1 />}/>
-          <Route path="/play/1/C/End" element={<Schene3_1End />}/>
-          <Route path="/play/1/D" element={<Schene4_1/>}/>
-          <Route path="/play/1/D/End" element={<Schene4_1End/>}/>
-          <Route path="/play/1/D/End2" element={<Schene4_1End2/>}/>
-          <Route path="/play/1/D/End3" element={<Schene4_1End3/>}/>
-          <Route path="/credits" element={<Credits />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      <AnimatePresence mode="wait">
+        <Suspense fallback={<RouteLoader />}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={
+              <PageWrapper>
+                <Home />
+              </PageWrapper>
+            } />
+            <Route path="/play" element={
+              <PageWrapper>
+                <Schene1_1 />
+              </PageWrapper>
+            } />
+            <Route path="/play/1" element={
+              <PageWrapper>
+                <Schene1_2 />
+              </PageWrapper>
+            } />
+            <Route path="/play/1/A" element={
+              <PageWrapper>
+                <Schene1_3 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/A/A" element={
+              <PageWrapper>
+                <Schene1_3A />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/A/A/A" element={
+              <PageWrapper>
+                <Schene1_3AA />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/A/A/B" element={
+              <PageWrapper>
+                <Schene1_3AB />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/A/EndC" element={
+              <PageWrapper>
+                <Schene1_3C />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/A/A/A/End1" element={
+              <PageWrapper>
+                <Schene1_3AAEnd1 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/A/A/A/End2" element={
+              <PageWrapper>
+                <Schene1_3AAEnd2 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/A/A/A/End3" element={
+              <PageWrapper>
+                <Schene1_3AAEnd3 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/B" element={
+              <PageWrapper>
+                <Schene2_1 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/B/A" element={
+              <PageWrapper>
+                <Schene2_2 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/B/A/End1" element={
+              <PageWrapper>
+                <Schene2_2End1 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/B/B/End2" element={
+              <PageWrapper>
+                <Schene2_2End2 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/B/End2" element={
+              <PageWrapper>
+                <Schene2_1End2 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/C" element={
+              <PageWrapper>
+                <Schene3_1 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/C/End" element={
+              <PageWrapper>
+                <Schene3_1End />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/D" element={
+              <PageWrapper>
+                <Schene4_1 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/D/End" element={
+              <PageWrapper>
+                <Schene4_1End />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/D/End2" element={
+              <PageWrapper>
+                <Schene4_1End2 />
+              </PageWrapper>
+            }/>
+            <Route path="/play/1/D/End3" element={
+              <PageWrapper>
+                <Schene4_1End3 />
+              </PageWrapper>
+            }/>
+            <Route path="/credits" element={
+              <PageWrapper>
+                <Credits />
+              </PageWrapper>
+            } />
+            <Route path="*" element={
+              <PageWrapper>
+                <NotFound />
+              </PageWrapper>
+            } />
+          </Routes>
+        </Suspense>
+      </AnimatePresence>
     </PreloadManager>
   );
 }

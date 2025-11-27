@@ -1,5 +1,5 @@
-import escrn from '../../assets/4_1e3.png';
-import kpa from '../../assets/4_1e3.png';
+// import escrn from '../../assets/4_1e3.png';
+import kpa4e3 from '../../assets/4_1e3.png';
 
 import '../choiceA/s1.css'
 import '../choiceB/S2.css'
@@ -71,7 +71,7 @@ export default function Schene4_1End3() {
         <div className="imageschene1">
           <img
             className="tops1_3A"
-            src={escrn}
+            src={kpa4e3}
             alt="bc scene"
           />
 
@@ -106,7 +106,7 @@ export default function Schene4_1End3() {
         <div className="imageschene2_1">
           <motion.img
             className="ewimage"
-            src={kpa}
+            src={kpa4e3}
             alt="office scene"
             variants={zoomVariants}
             animate="animate"

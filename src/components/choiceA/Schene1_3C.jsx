@@ -1,9 +1,9 @@
 import escrn from '../../assets/ASS1.png';
-import kpa from '../../assets/ASS1.png';
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
 import { useRef, useEffect, useState } from 'react'
+import Home from '../../pages/Home';
 
 import JSConfetti from 'js-confetti'
 import './s1.css'
@@ -14,6 +14,10 @@ export default function Schene1_3C() {
   const jsConfetti = new JSConfetti()
   const textContainerRef = useRef(null)
   const [confettiFired, setConfettiFired] = useState(false)
+
+  useEffect(() => {
+    Home.preload?.().catch(() => {});
+  }, [])
 
   // Fade-in sequence for text paragraphs
   const textVariants = {
@@ -155,7 +159,7 @@ export default function Schene1_3C() {
         <div className="imageschene2_1">
           <motion.img
             className="ewimage"
-            src={kpa}
+            src={escrn}
             alt="office scene"
             variants={zoomVariants}
             animate="animate"

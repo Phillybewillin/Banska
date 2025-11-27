@@ -1,14 +1,19 @@
-
-import escrn from '../../assets/c3i.png'
-import kpa from '../../assets/c3i.png'
+import kppa from '../../assets/c3i.png'
 import './s1.css'
 
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
+import { useEffect } from 'react'
+import Schene1_3AA from './Schene1_3AA'
+import Schene1_3AB from './Schene1_3AB' 
 
 export default function Schene1_3A() {
     const navigate = useNavigate();
+    useEffect(() => {
+      Schene1_3AA.preload?.().catch(() => {});
+      Schene1_3AB.preload?.().catch(() => {});
+    })
   // Fade-in sequence for text paragraphs
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -93,7 +98,7 @@ export default function Schene1_3A() {
         <div className="imageschene1">
           <img
             className="tops1_3A"
-            src={escrn}
+            src={kppa}
             alt="bc scene"
            
           />
@@ -117,8 +122,12 @@ export default function Schene1_3A() {
               animate={{ opacity: 1 , scale: 1 }}
               transition={{ delay: paragraphs.length * 0.3  }}
             >
-             <button onClick={()=>navigate('/play/1/A/A/A')}>Go to the conference and read the scripted statement</button>
-             <button onClick={()=>navigate('/play/1/A/A/B')}>Go to the conference and speak the truth</button>
+             <button
+              onMouseEnter={()=>{Schene1_3AA.preload()}}
+              onClick={()=>navigate('/play/1/A/A/A')}>Go to the conference and read the scripted statement</button>
+             <button 
+              onMouseEnter={()=>{Schene1_3AB.preload()}}
+             onClick={()=>navigate('/play/1/A/A/B')}>Go to the conference and speak the truth</button>
             </motion.div>
           </div>
         </div>
@@ -127,7 +136,7 @@ export default function Schene1_3A() {
         
             <motion.img
             className="tcimage"
-            src={kpa}
+            src={kppa}
             alt="office scene"
             variants={zoomVariants}
             animate="animate"

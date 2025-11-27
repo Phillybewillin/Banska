@@ -1,5 +1,5 @@
-import escrn from '../../assets/end33a.png';
-import kpa from '../../assets/end33a.png';
+// import escrn from '../../assets/end33a.png';
+import kpa3_1e from '../../assets/end33a.png';
 
 import '../choiceA/s1.css'
 import '../choiceB/S2.css'
@@ -23,8 +23,8 @@ export default function Schene3_1End() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.5, // delay each paragraph
-        duration: 0.8,
+        delay: i * 0.25, // delay each paragraph
+        duration: 0.58,
         ease: 'easeOut'
       }
     })
@@ -75,7 +75,7 @@ export default function Schene3_1End() {
 
     "....................................................................................................",
 
-    "You Got The Best Ending, Thanks for playing. ",
+    "The End ,You Got The Realisation Ending, Thanks for playing. ",
 
     "＼(((￣(￣(￣▽￣)￣)￣)))／"
   ];
@@ -122,7 +122,7 @@ export default function Schene3_1End() {
         <div className="imageschene1">
           <img
             className="tops1_3A"
-            src={escrn}
+            src={kpa3_1e}
             alt="bc scene"
           />
 
@@ -147,9 +147,9 @@ export default function Schene3_1End() {
               className="choices"
               initial={{ opacity: 0.3, scale: 0.3 }}
               animate={{ opacity: 1 , scale: 1 }}
-              transition={{ delay: paragraphs.length * 0.3 + 1 }}
+              transition={{ delay: paragraphs.length * 0.4 }}
             >
-              <button onClick={() => navigate('/')}>Back to Home</button>
+              <button onClick={() => navigate('/')}>Play Again?</button>
             </motion.div>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function Schene3_1End() {
         <div className="imageschene2_1">
           <motion.img
             className="ewimage"
-            src={kpa}
+            src={kpa3_1e}
             alt="office scene"
             variants={zoomVariants}
             animate="animate"

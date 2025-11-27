@@ -1,6 +1,5 @@
 
-import escrn from '../../assets/ENDING2B.png';
-import kpa from '../../assets/ENDING2B.png';
+import kpaEnd from '../../assets/ENDING2B.png';
 
 import '../choiceA/s1.css'
 import './S2.css'
@@ -79,7 +78,7 @@ const paragraphs = [
         <div className="imageschene1">
           <img
             className="tops1_3A"
-            src={escrn}
+            src={kpaEnd}
             alt="bc scene"
            
           />
@@ -113,7 +112,7 @@ const paragraphs = [
          
             <motion.img
             className="ewimage"
-            src={kpa}
+            src={kpaEnd}
             alt="office scene"
             variants={zoomVariants}
             animate="animate"

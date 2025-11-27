@@ -1,15 +1,22 @@
 
-import escrn from '../../assets/thediscussion.png';
-import kpa from '../../assets/thediscussion.png';
+// import escrn from '../../assets/thediscussion.png';
+import kpa3_1 from '../../assets/thediscussion.png';
 
 import '../choiceA/s1.css'
 import '../choiceB/S2.css'
 import { ChevronLeftIcon } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router'
+import { useEffect } from 'react';
+import Schene3_1End from './Schene3_1End';
+import Schene2_1End2 from '../choiceB/Schene2_1End2';
 
 export default function Schene3_1() {
     const navigate = useNavigate();
+    useEffect(() => {
+      Schene2_1End2.preload?.().catch(() => {});
+      Schene3_1End.preload?.().catch(() => {});
+    })
   // Fade-in sequence for text paragraphs
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
@@ -70,7 +77,7 @@ export default function Schene3_1() {
         <div className="imageschene1">
           <img
             className="tops1_3A"
-            src={escrn}
+            src={kpa3_1}
             alt="bc scene"
            
           />
@@ -105,7 +112,7 @@ export default function Schene3_1() {
          
             <motion.img
             className="ewimage"
-            src={kpa}
+            src={kpa3_1}
             alt="office scene"
             variants={zoomVariants}
             animate="animate"
