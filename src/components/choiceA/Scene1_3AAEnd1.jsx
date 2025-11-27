@@ -99,7 +99,7 @@ export default function Schene1_3AAEnd1() {
   return (
     <>
       <div className="sceneholder">
-        <div className="backbutton" onClick={() => navigate('/')}>
+        <div className="backbutton" onClick={() => navigate(-1)}>
           <ChevronLeftIcon size={30} />
         </div>
 

@@ -149,7 +149,12 @@ export default function Schene1_3AA() {
 
       {/* ===== BACK + FORWARD ARROWS ===== */}
       <div className="nav-arrows">
-
+         
+         {(phase === "intro" || history.length === 0) && (
+          <button className="nav-btn" onClick={handleBack}>
+            <ChevronLeft size={30}/>
+          </button>
+        )}
         {(phase !== "intro" || history.length > 0) && (
           <button className="nav-btn" onClick={handleBack}>
             <ChevronLeft size={30}/>
